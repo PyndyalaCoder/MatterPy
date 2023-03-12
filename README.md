@@ -33,6 +33,11 @@ setHeight(height): Sets the height of the object.
 setVolts(voltage): Sets the voltage of the object.
 setLocalGravityForce(g): Sets the local gravitational force.
 setTemperature(temp): Sets the temperature of the object.
+setAtomicNumber(number)
+setAtomicMass(mass)
+setResistance(voltage, current)
+setCapacitance(charge, voltage)
+setHalfLife(life)
 ```
 
 <br>
@@ -48,6 +53,10 @@ getLocalGravity() # retrieves the local gravitational force in meters per second
 getGasPressure(gas_density) # retrieves the gas pressure in pascals, based on the gas density and temperature
 getVolts() # retrieves the voltage of the object in volts
 getKineticEnergy()
+getDecayRate()
+getNuclearBindingEnergy()
+getResistance()
+getCapacitance()
 getWeight()
 returnConsts() # returns physics constants
 ```
