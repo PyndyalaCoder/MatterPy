@@ -38,6 +38,10 @@ setAtomicMass(mass)
 setResistance(voltage, current)
 setCapacitance(charge, voltage)
 setHalfLife(life)
+setSphereSurfaceArea(radius)
+setCylinderSurfaceArea(radius, height)
+setConeSurfaceArea(radius, height)
+setRectSurfaceArea(length, width, height)
 ```
 
 <br>
@@ -56,6 +60,7 @@ getKineticEnergy()
 getDecayRate()
 getNuclearBindingEnergy()
 getResistance()
+getSurfaceArea()
 getCapacitance()
 getWeight()
 returnConsts() # returns physics constants
