@@ -26,28 +26,26 @@ class matter:
         e = 1.602e-19
         q = electrons * e
         self.charge = q
-        
+
     def setSphereSurfaceArea(self, radius):
-        self.surface_area = 4 * math.pi * radius**2
-    
+        self.surface_area = 4 * math.pi * radius ** 2
+
     def setCylinderSurfaceArea(self, radius, height):
-        self.surface_area = 2 * math.pi * radius * height + 2 * math.pi * radius**2
-        
+        self.surface_area = 2 * math.pi * radius * height + 2 * math.pi * radius ** 2
+
     def setConeSurfaceArea(self, radius, height):
-        slant_height = math.sqrt(radius**2 + height**2)
-        self.surface_area = math.pi * radius * slant_height + math.pi * radius**2
-    
+        slant_height = math.sqrt(radius ** 2 + height ** 2)
+        self.surface_area = math.pi * radius * slant_height + math.pi * radius ** 2
+
     def setRectSurfaceArea(self, length, width, height):
         self.surface_area = 2 * (length * width + length * height + width * height)
-        
-        
+
     def getSurfaceArea(self):
         if not self.surface_area:
             return "You have not set a surface area yet, use one of the funcs to set it"
         else:
             return self.surface_area
-        
-       
+
     def setVolumeCube(self, length):
         self.volume = length ** 3
 
@@ -158,8 +156,8 @@ class matter:
 
     def getVolts(self):
         return self.voltage
-    
-    @staticmethod 
+
+    @staticmethod
     def returnConsts():
         return {'BOLTZMANN_CONSTANT': 1.380649e-23,
                 'ELEMENTARY_CHARGE': 1.602176634e-19,
@@ -210,5 +208,46 @@ class matter:
         mass_defect = self.atomic_mass - (self.atomic_number * 1.00728)
         binding_energy = mass_defect * 931.5  # Conversion factor for MeV to atomic mass units
         return binding_energy
-    
+
+    def getSchwarzschildRadius(self):
+        if not self.mass:
+            return "You have not set mass. Please do that"
+        """
+        Calculates the Schwarzschild radius of an object given its mass.
+        """
+        G = 6.67430e-11  # gravitational constant
+        c = 299792458  # speed of light
+        rs = 2 * G * self.mass / (c ** 2)
+        return rs
+
+    def getEscapeVelocity(self, radius):
+        if not self.mass:
+            return "Set mass first"
+        """
+        Calculates the escape velocity of an object given its mass and radius.
+        """
+        G = 6.67430e-11  # gravitational constant
+        ve = math.sqrt(2 * G * self.mass / radius)
+        return ve
+
+    def getSchwarzschildFrequency(self):
+        if not self.mass:
+            return "Mass needs to be set"
+        """
+        Calculates the Schwarzschild frequency of an object given its mass.
+        """
+        G = 6.67430e-11  # gravitational constant
+        c = 299792458  # speed of light
+        fs = (c ** 3) / (8 * math.pi * G * self.mass)
+        return fs
+
+    def luminosity(self, radius):
+        if not self.temp:
+            return "Temp needs to be set"
+        """
+        Calculates the luminosity of an object given its radius and temperature.
+        """
+        sigma = 5.670367e-8  # Stefan-Boltzmann constant
+        L = 4 * math.pi * (radius ** 2) * sigma * (self.temp ** 4)
+        return L
 
