@@ -21,6 +21,8 @@ class matter:
         self.half_life = None
         self.atomic_mass = None
         self.surface_area = None
+        self.delta_temp = None
+        self.spec_heat = None
 
     def setCharge(self, electrons):
         e = 1.602e-19
@@ -84,6 +86,14 @@ class matter:
         vz = (z2 - z1) / (t2 - t1)
         speed = math.sqrt(vx ** 2 + vy ** 2 + vz ** 2)
         self.inst_speed = speed
+        
+    def getGravityConst(self):
+        # returns gravitational constant in m^3 kg^-1 s^-2.
+        return 6.6743e-11
+    
+    def getLightSpeed(self):
+        # returns speed of light in meters per second
+        return 299792458
 
     def setMass(self, mass):
         self.mass = mass
@@ -250,4 +260,15 @@ class matter:
         sigma = 5.670367e-8  # Stefan-Boltzmann constant
         L = 4 * math.pi * (radius ** 2) * sigma * (self.temp ** 4)
         return L
-
+    
+    def setSpecificHeatCapacity(cap):
+        self.spec_heat = cap
+    
+    def setDeltaTemp(temp):
+        self.delta_temp = temp
+        
+    def getHeatCapacity():
+        if not self.delta_temp or not self.spec_heat or not self.mass:
+            return "Some required consts are not defined"
+        
+        return self.mass * self.spec_heat * self.delta_temp
