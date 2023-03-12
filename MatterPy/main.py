@@ -17,6 +17,9 @@ class matter:
         self.resistance = None
         self.capacitance = None
         self.voltage = 0
+        self.atomic_number = None
+        self.half_life = None
+        self.atomic_mass = None
 
     def setCharge(self, electrons):
         e = 1.602e-19
@@ -139,8 +142,8 @@ class matter:
                 'ELEMENTARY_CHARGE': 1.602176634e-19,
                 'PERMITTIVITY_OF_VACUUM': 8.8541878128e-12,
                 'MAGNETIC_CONSTANT': 1.25663706212e-6,
-                'SPEED_OF_SOUND_IN_AIR': 343.2 }
-    
+                'SPEED_OF_SOUND_IN_AIR': 343.2}
+
     def setResistance(self, voltage, current):
         if current == 0:
             raise ZeroDivisionError("Current cannot be zero!")
@@ -150,14 +153,37 @@ class matter:
         if voltage == 0:
             raise ZeroDivisionError("Voltage cannot be zero!")
         self.capacitance = charge / voltage
-    
+
     def getResistance(self):
-        if self.resistance == None:
+        if not self.resistance:
             return "You have not set resistance"
         return self.resistance
-    
+
     def getCapacitance(self):
-        if self.capacitance == None:
+        if not self.capacitance:
             return "You have not set capacitance"
         return self.capacitance
 
+    def setHalfLife(self, life):
+        self.half_life = life
+
+    def setAtomicNumber(self, number):
+        self.atomic_number = number
+
+    def getDecayRate(self):
+        if not self.half_life:
+            return "Set half life first"
+        # Calculate the decay rate based on the half-life
+        return math.log(2) / self.half_life
+
+    def setAtomicMass(self, mass):
+        self.atomic_mass = mass
+
+    def getNuclearBindingEnergy(self):
+        if not self.atomic_mass or not self.atomic_number:
+            return "Set atomic_mass and self.atomic_number before trying to get nuclear binding energy"
+
+        # Calculate the nuclear binding energy based on the atomic mass and number
+        mass_defect = self.atomic_mass - (self.atomic_number * 1.00728)
+        binding_energy = mass_defect * 931.5  # Conversion factor for MeV to atomic mass units
+        return binding_energy
