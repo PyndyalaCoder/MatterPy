@@ -20,12 +20,34 @@ class matter:
         self.atomic_number = None
         self.half_life = None
         self.atomic_mass = None
+        self.surface_area = None
 
     def setCharge(self, electrons):
         e = 1.602e-19
         q = electrons * e
         self.charge = q
-
+        
+    def setSphereSurfaceArea(self, radius):
+        self.surface_area = 4 * math.pi * radius**2
+    
+    def setCylinderSurfaceArea(self, radius, height):
+        self.surface_area = 2 * math.pi * radius * height + 2 * math.pi * radius**2
+        
+    def setConeSurfaceArea(self, radius, height):
+        slant_height = math.sqrt(radius**2 + height**2)
+        self.surface_area = math.pi * radius * slant_height + math.pi * radius**2
+    
+    def setRectSurfaceArea(self, length, width, height):
+        self.surface_area = 2 * (length * width + length * height + width * height)
+        
+        
+    def getSurfaceArea(self):
+        if not self.surface_area:
+            return "You have not set a surface area yet, use one of the funcs to set it"
+        else:
+            return self.surface_area
+        
+       
     def setVolumeCube(self, length):
         self.volume = length ** 3
 
@@ -136,8 +158,9 @@ class matter:
 
     def getVolts(self):
         return self.voltage
-
-    def returnConsts(self):
+    
+    @staticmethod 
+    def returnConsts():
         return {'BOLTZMANN_CONSTANT': 1.380649e-23,
                 'ELEMENTARY_CHARGE': 1.602176634e-19,
                 'PERMITTIVITY_OF_VACUUM': 8.8541878128e-12,
@@ -187,3 +210,5 @@ class matter:
         mass_defect = self.atomic_mass - (self.atomic_number * 1.00728)
         binding_energy = mass_defect * 931.5  # Conversion factor for MeV to atomic mass units
         return binding_energy
+    
+
