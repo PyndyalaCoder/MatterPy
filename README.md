@@ -15,7 +15,7 @@ After <strong>installation</strong>, make sure to create an instance of the obje
 ```python
   newtons_apple = matter()
 ```
-After this, use the `set` functions to setup information:
+After this, use the `set` functions to setup information. (These set methods take input, then use it to perform calculations, before storing it in a variable. This variable can be retrieved using the `get` methods that are shown later):
 
 ```
 setCharge(electrons): Sets the charge of the object in Coulombs, based on the number of electrons provided as an argument.
