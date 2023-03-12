@@ -14,6 +14,8 @@ class matter:
         self.gravitational_force = 9.81
         self.temp = 0
         self.gasConst = 8.314
+        self.resistance = None
+        self.capacitance = None
         self.voltage = 0
 
     def setCharge(self, electrons):
@@ -139,3 +141,23 @@ class matter:
                 'MAGNETIC_CONSTANT': 1.25663706212e-6,
                 'SPEED_OF_SOUND_IN_AIR': 343.2 }
     
+    def setResistance(self, voltage, current):
+        if current == 0:
+            raise ZeroDivisionError("Current cannot be zero!")
+        self.resistance = voltage / current
+
+    def setCapacitance(self, charge, voltage):
+        if voltage == 0:
+            raise ZeroDivisionError("Voltage cannot be zero!")
+        self.capacitance = charge / voltage
+    
+    def getResistance(self):
+        if self.resistance == None:
+            return "You have not set resistance"
+        return self.resistance
+    
+    def getCapacitance(self):
+        if self.capacitance == None:
+            return "You have not set capacitance"
+        return self.capacitance
+
