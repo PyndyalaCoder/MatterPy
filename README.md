@@ -70,4 +70,4 @@ getWeight()
 returnConsts() # returns physics constants
 ```
 
-An error control system has been programmed in case that the user tries to use a `get` function without setting the appropriate values. The function will return a set of instructions on what to do in order to use the func.
+An <b>error control system</b> has been programmed in case that the user tries to use a `get` function without setting the appropriate values. The function will return a set of instructions on what to do in order to use the func.
