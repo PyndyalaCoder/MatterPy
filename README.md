@@ -17,22 +17,22 @@ After <strong>installation</strong>, make sure to create an instance of the obje
 ```
 After this, use the `set` functions to setup information. (These set methods take input, then use it to perform calculations, before storing it in a variable. This variable can be retrieved using the `get` methods that are shown later):
 
-```
-setCharge(electrons): Sets the charge of the object in Coulombs, based on the number of electrons provided as an argument.
-setVolumeCube(length): Sets the volume of the object to a cube with side length length.
-setVolumeCone(radius, height): Sets the volume of the object to a cone with base radius radius and height height.
-setVolumeCylinder(radius, height): Sets the volume of the object to a cylinder with base radius radius and height height.
-setVolumeSphere(radius): Sets the volume of the object to a sphere with radius radius.
-setVolumeRectPrism(length, w, h): Sets the volume of the object to a rectangular prism with length length, width w, and height h.
-setDensity(mass): Sets the density of the object, based on its mass and volume. Note that the volume must be set before calling this function.
-setInstVelocity(x1, y1, z1, x2, y2, z2, t1, t2): Sets the instantaneous velocity of the object, based on its position at two different times.
-setInstSpeed(x1, y1, z1, x2, y2, z2, t1, t2): Sets the instantaneous speed of the object, based on its position at two different times.
-setMass(mass): Sets the mass of the object.
-setVelocity(velocity): Sets the velocity of the object.
-setHeight(height): Sets the height of the object.
-setVolts(voltage): Sets the voltage of the object.
-setLocalGravityForce(g): Sets the local gravitational force.
-setTemperature(temp): Sets the temperature of the object.
+```python
+setCharge(electrons)# Sets the charge of the object in Coulombs, based on the number of electrons provided as an argument.
+setVolumeCube(length)# Sets the volume of the object to a cube with side length length.
+setVolumeCone(radius, height)# Sets the volume of the object to a cone with base radius radius and height height.
+setVolumeCylinder(radius, height)# Sets the volume of the object to a cylinder with base radius radius and height height.
+setVolumeSphere(radius)# Sets the volume of the object to a sphere with radius radius.
+setVolumeRectPrism(length, w, h)# Sets the volume of the object to a rectangular prism with length length, width w, and height h.
+setDensity(mass) # Sets the density of the object, based on its mass and volume. Note that the volume must be set before calling this function.
+setInstVelocity(x1, y1, z1, x2, y2, z2, t1, t2) # Sets the instantaneous velocity of the object, based on its position at two different times.
+setInstSpeed(x1, y1, z1, x2, y2, z2, t1, t2) # Sets the instantaneous speed of the object, based on its position at two different times.
+setMass(mass)# Sets the mass of the object.
+setVelocity(velocity)# Sets the velocity of the object.
+setHeight(height)# Sets the height of the object.
+setVolts(voltage)# Sets the voltage of the object.
+setLocalGravityForce(g)# Sets the local gravitational force.
+setTemperature(temp)# Sets the temperature of the object.
 setAtomicNumber(number)
 setAtomicMass(mass)
 setResistance(voltage, current)
@@ -69,3 +69,5 @@ getCapacitance()
 getWeight()
 returnConsts() # returns physics constants
 ```
+
+An error control system has been programmed in case that the user tries to use a `get` function without setting the appropriate values. The function will return a set of instructions on what to do in order to use the func.
