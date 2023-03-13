@@ -33,15 +33,15 @@ setHeight(height)# Sets the height of the object.
 setVolts(voltage)# Sets the voltage of the object.
 setLocalGravityForce(g)# Sets the local gravitational force.
 setTemperature(temp)# Sets the temperature of the object.
-setAtomicNumber(number)
-setAtomicMass(mass)
-setResistance(voltage, current)
-setCapacitance(charge, voltage)
-setHalfLife(life)
-setSphereSurfaceArea(radius)
-setCylinderSurfaceArea(radius, height)
-setConeSurfaceArea(radius, height)
-setRectSurfaceArea(length, width, height)
+setAtomicNumber(number) # Sets the atomic number of the element
+setAtomicMass(mass) # sets the atomic mass of the element
+setResistance(voltage, current) # Calculates and sets resistance of the element
+setCapacitance(charge, voltage) # Calculates and sets capacitance of the object
+setHalfLife(life) # sets the half life
+setSphereSurfaceArea(radius) # surface area
+setCylinderSurfaceArea(radius, height)# surface area
+setConeSurfaceArea(radius, height)# surface area
+setRectSurfaceArea(length, width, height)# surface area
 ```
 
 <br>
@@ -56,17 +56,17 @@ getInstSpeed() # retrieves the instantaneous speed of the object in meters per s
 getLocalGravity() # retrieves the local gravitational force in meters per second squared
 getGasPressure(gas_density) # retrieves the gas pressure in pascals, based on the gas density and temperature
 getVolts() # retrieves the voltage of the object in volts
-getKineticEnergy()
-getDecayRate()
-getNuclearBindingEnergy()
-getResistance()
-getSurfaceArea()
-luminosity(radius)
-getSchwarzschildFrequency()
-getEscapeVelocity(radius)
-getSchwarzschildRadius()
-getCapacitance()
-getWeight()
+getKineticEnergy() # gets kinetic energy in joules. Must have set velocity and mass
+getDecayRate() # gets decay rate of element
+getNuclearBindingEnergy() # gives nuclear binding energy of element in joules
+getResistance() # gives resistance of the object
+getSurfaceArea() # gives the surface area. Must have previously set it in the set funcs
+luminosity(radius) # luminosity of the object
+getSchwarzschildFrequency() # astrophysics
+getEscapeVelocity(radius) # astrophysics
+getSchwarzschildRadius() # astrophysics
+getCapacitance() # returns capcitance
+getWeight() # returns force exerted by gravity in N
 returnConsts() # returns physics constants
 ```
 
